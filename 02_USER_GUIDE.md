@@ -6,7 +6,7 @@ No Linux knowledge required.
 
 ---
 
-# 📥 How to Upload Files
+# How to Upload Files
 
 You have two main ways to upload files:
 
@@ -15,7 +15,7 @@ You have two main ways to upload files:
 
 ---
 
-## 📱 Option 1 – Upload From Phone (Recommended)
+##  Option 1 – Upload From Phone (Recommended)
 
 ### Step 1 – Connect to Home Wi-Fi
 
@@ -57,11 +57,23 @@ Wait for upload to complete.
 That’s it.
 
 ---
+## 💻 Option 2 – Upload From Windows Laptop (Drag & Drop)
 
-# 💻 Option 2 – Upload From Windows Laptop (Drag & Drop)
+This is the fastest way to upload large files from your computer.
+
+---
 
 ### Step 1 – Open File Explorer
 
-In the address bar, type:
+1. Press **Windows + E** to open File Explorer.
+2. Click the address bar at the top.
+3. Type:
 
-``` If that doesn’t work, try: ``` \\arthpi\Media ``` --- ### Step 2 – Login Use: - Username: `arth` - Password: (your Samba password) --- ### Step 3 – Drag and Drop Copy files into: - `movies` - `series` Done. --- # 🎬 How to Watch Movies Open Jellyfin in your browser or TV app: ``` http://10.0.0.50:8096 ``` Select your library and press play. --- # 📺 Watching on TV If using a smart TV: - Install Jellyfin app - Add server: - Address: `10.0.0.50` - Port: `8096` Login and stream. --- # 📁 File Naming Tips (Keeps Library Clean) Movies: ``` Movie Name (2024).mp4 ``` TV Shows: ``` Show Name └── Season 01 └── Show Name - S01E01.mp4 ``` Clean naming = better organization. --- # ⚠ Important Rules - Do not unplug the drives while server is running. - Do not power off by pulling the plug. - Avoid unnecessary reboots. - RAID protects against one disk failure, not total data loss. - Important files should still be backed up elsewhere. --- # 🔄 If Something Stops Working First try: 1. Refresh browser 2. Restart Jellyfin app 3. Reboot server only if necessary If needed, contact the administrator. --- End of User Guide ``` --- Reply: **Done** Then we move to: 📄 `03_ADMIN_GUIDE.md` (proper maintenance, RAID replacement steps, safe reboot procedure, monitoring commands, etc.)
+``` 4. Press **Enter**. If that does not work, try: 
+``` \\arthpi\Media ```
+---
+### Step 2 – Sign In (If Prompted) Enter your server credentials:
+- **Username:** `arth` - **Password:** (your Samba password) If this is your personal laptop, you can select
+**Remember my credentials**. --- ### Step 3 – Upload Files You will see folders such as:
+- `movies` - `series` Drag and drop your files into the correct folder. Wait until the copy process fully completes before closing the window. Your files are now stored on the server.
+ ``` --- If you'd like, I can also add a small section on how to permanently map it as a drive (like `Z:`) so it looks cleaner and more professional.
