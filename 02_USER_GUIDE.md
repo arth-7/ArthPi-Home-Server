@@ -10,12 +10,12 @@ No Linux knowledge required.
 
 You have two main ways to upload files:
 
-1. From your phone (easiest)
-2. From your laptop (fastest)
+1. From your phone 
+2. From your laptop
 
 ---
 
-##  Option 1 – Upload From Phone (Recommended)
+##  Option 1 – Upload From Phone
 
 ### Step 1 – Connect to Home Wi-Fi
 
