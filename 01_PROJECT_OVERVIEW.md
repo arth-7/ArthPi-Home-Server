@@ -168,8 +168,4 @@ The system is currently:
 - Improve drive cooling  
 - Consider larger capacity drives  
 
----
-
-**End of Document**
-
 
