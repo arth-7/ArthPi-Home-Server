@@ -126,6 +126,52 @@ Detailed guides:
 - One disk scheduled for replacement
 
 ---
+## 🏗 Architecture Diagram
+
+```mermaid
+flowchart TD
+
+    %% Clients
+    Phone[📱 Phone]
+    Laptop[💻 Windows Laptop]
+    TV[📺 Smart TV]
+
+    %% Network
+    Router[🌐 Home Router / WiFi]
+
+    %% Server
+    Pi[🖥 Raspberry Pi 4<br>Ubuntu Server]
+
+    %% Services
+    Jellyfin[🎬 Jellyfin :8096]
+    Filebrowser[📁 Filebrowser :8081]
+    Samba[🗂 Samba Share]
+    Docker[🐳 Docker Engine]
+
+    %% Storage
+    RAID[💾 RAID1 /dev/md0]
+    DiskA[HDD A]
+    DiskB[HDD B]
+
+    %% Connections
+    Phone --> Router
+    Laptop --> Router
+    TV --> Router
+
+    Router --> Pi
+
+    Pi --> Docker
+    Docker --> Jellyfin
+    Docker --> Filebrowser
+    Pi --> Samba
+
+    Jellyfin --> RAID
+    Filebrowser --> RAID
+    Samba --> RAID
+
+    RAID --> DiskA
+    RAID --> DiskB
+```
 
 # Future Improvements
 
