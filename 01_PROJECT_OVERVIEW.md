@@ -164,7 +164,6 @@ The system is currently:
 
 ### Next Planned Improvements
 
-- Replace failing HDD  
 - Improve drive cooling  
 - Consider larger capacity drives  
 
