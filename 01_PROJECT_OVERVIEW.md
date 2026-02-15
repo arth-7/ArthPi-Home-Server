@@ -1,6 +1,6 @@
 # ArthPi Home Server – Project Overview
 
-## 🎯 Purpose of This Project
+## Purpose of This Project
 
 This project converts a Raspberry Pi 4 into a structured and reliable home server that functions as:
 
@@ -15,7 +15,7 @@ The goal is to build a stable, organized, and professional-grade home server tha
 
 ---
 
-## 🖥 Hardware Used
+## Hardware Used
 
 - Raspberry Pi 4B  
 - 2 × 750GB Seagate HDDs  
@@ -24,7 +24,7 @@ The goal is to build a stable, organized, and professional-grade home server tha
 
 ---
 
-## 💿 Operating System
+## Operating System
 
 - Ubuntu Server 25.10 (64-bit ARM)
 - Headless setup (managed via SSH)
@@ -38,7 +38,7 @@ The goal is to build a stable, organized, and professional-grade home server tha
 
 ---
 
-## 💾 Storage Architecture
+## Storage Architecture
 
 ### RAID Configuration
 
@@ -59,7 +59,7 @@ RAID1 mirrors both drives:
 
 > Important: RAID provides redundancy, not backup.
 
-## 📂 Folder Structure
+## Folder Structure
 
 All real data lives under:
 
@@ -84,38 +84,38 @@ Directory layout:
 Nothing critical is stored on the SD card.  
 The SD card contains only the operating system.
 
-## 🧩 Services Running
+## Services Running
 
-### 🎬 Jellyfin
+### Jellyfin
 - Media streaming server
 - Port: `8096`
 - URL: `http://arthpi:8096`
 - Container path: `/media`
 - Host path: `/mnt/raid/media`
 
-### 📁 Filebrowser
+### Filebrowser
 - Web-based file manager
 - Port: `8081`
 - URL: `http://10.0.0.50:8081`
 - Root directory: `/mnt/raid/media`
 
-### 🖥 Samba (SMB)
+### Samba (SMB)
 - Windows network share
 - Share name: `Media`
 - Path: `/mnt/raid/media`
 - Access: `\\arthpi\Media`
 
-### 🐳 Portainer
+### Portainer
 - Docker management interface
 - Port: `9000`
 
-### 🔧 Cockpit
+### Cockpit
 - Web-based server administration panel
 - Port: `9090` (LAN access only)
 
 ---
 
-## 📊 Monitoring & Automation
+## Monitoring & Automation
 
 The server includes automated monitoring to reduce manual checks.
 
@@ -141,7 +141,7 @@ This allows early detection of hardware issues.
 
 ---
 
-## ⚠ Current Known Issue
+## Current Known Issue
 
 One disk is reporting a SMART failure (`Spin_Retry_Count`).
 
@@ -151,7 +151,7 @@ One disk is reporting a SMART failure (`Spin_Retry_Count`).
 
 ---
 
-## ✅ Project Status
+## Project Status
 
 The system is currently:
 
