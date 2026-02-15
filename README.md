@@ -126,30 +126,30 @@ Detailed guides:
 - One disk scheduled for replacement
 
 ---
-## 🏗 Architecture Diagram
+##  Architecture Diagram
 
 ```mermaid
 flowchart TD
 
     %% Clients
-    Phone[📱 Phone]
-    Laptop[💻 Windows Laptop]
-    TV[📺 Smart TV]
+    Phone[ Phone]
+    Laptop[ Windows Laptop]
+    TV[ Smart TV]
 
     %% Network
-    Router[🌐 Home Router / WiFi]
+    Router[ Home Router / WiFi]
 
     %% Server
     Pi[🖥 Raspberry Pi 4<br>Ubuntu Server]
 
     %% Services
-    Jellyfin[🎬 Jellyfin :8096]
-    Filebrowser[📁 Filebrowser :8081]
-    Samba[🗂 Samba Share]
-    Docker[🐳 Docker Engine]
+    Jellyfin[ Jellyfin :8096]
+    Filebrowser[ Filebrowser :8081]
+    Samba[ Samba Share]
+    Docker[ Docker Engine]
 
     %% Storage
-    RAID[💾 RAID1 /dev/md0]
+    RAID[ RAID1 /dev/md0]
     DiskA[HDD A]
     DiskB[HDD B]
 
@@ -172,6 +172,52 @@ flowchart TD
     RAID --> DiskA
     RAID --> DiskB
 ```
+
+## Data Flow Diagram (Upload + Streaming)
+
+```mermaid
+flowchart LR
+
+  %% Nodes
+  Phone["Phone\nUploads"]
+  Laptop["Windows Laptop\nDrag & Drop"]
+  TV["Smart TV\nPlays Media"]
+  Router["Home Router / WiFi"]
+  Pi["Raspberry Pi 4\nUbuntu Server"]
+  Filebrowser["Filebrowser\n:8081"]
+  Samba["Samba (SMB)\n\\\\10.0.0.50\\Media"]
+  Jellyfin["Jellyfin\n:8096"]
+  RAID["RAID1 md0\n/mnt/raid"]
+  Movies["/mnt/raid/media/movies"]
+  Series["/mnt/raid/media/series"]
+
+  %% Connectivity
+  Phone -->|Wi-Fi| Router
+  Laptop -->|Wi-Fi / Ethernet| Router
+  TV -->|Wi-Fi| Router
+  Router -->|LAN| Pi
+
+  %% Upload Paths
+  Phone -->|HTTP Upload| Filebrowser
+  Filebrowser -->|Write files| RAID
+  RAID -->|Store| Movies
+  RAID -->|Store| Series
+
+  Laptop -->|SMB File Copy| Samba
+  Samba -->|Write files| RAID
+
+  %% Streaming Path
+  Jellyfin -->|Reads media| RAID
+  TV -->|HTTP Stream| Jellyfin
+  Phone -->|Optional playback| Jellyfin
+  Laptop -->|Optional playback| Jellyfin
+
+  %% Hosting
+  Pi -->|Runs| Filebrowser
+  Pi -->|Runs| Samba
+  Pi -->|Runs (Docker)| Jellyfin
+```
+
 
 # Future Improvements
 
