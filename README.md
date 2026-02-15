@@ -110,6 +110,68 @@ Health script location:
 ```
 /usr/local/bin/arthpi-health.sh
 ```
+## Automated Monitoring & Alerts
+
+The system includes automated health monitoring using:
+
+- `cron` for scheduling
+- `smartctl` for disk health checks
+- `mdadm` for RAID monitoring
+- `msmtp` for email delivery
+- A custom health script
+
+### Daily Health Report
+
+Every day at **7:00 AM**, the server automatically:
+
+1. Checks RAID status
+2. Checks SMART disk health
+3. Reads disk temperatures
+4. Checks Docker container status
+5. Sends a structured summary email
+
+Script location:
+
+```
+/usr/local/bin/arthpi-health.sh
+```
+
+Cron entry:
+
+```
+0 7 * * * /usr/local/bin/arthpi-health.sh | mail -s "ArthPi Daily Health Report" arthrraval@gmail.com
+```
+
+---
+
+### Email Delivery
+
+Email alerts are sent using:
+
+- `msmtp` configured with Gmail App Password
+- TLS encryption enabled
+- Restricted file permissions (`600`) on config files
+
+Config files:
+
+```
+/home/arth/.msmtprc
+/root/.msmtprc
+```
+
+---
+
+### Why This Matters
+
+This ensures:
+
+- Early detection of disk failure
+- RAID degradation alerts
+- Temperature warnings
+- Service failure awareness
+- Reduced manual checking
+
+The system is proactive, not reactive.
 
 ---
 
@@ -179,7 +241,7 @@ flowchart TD
     RAID --> DiskB
 ```
 
-## 🔁 Data Flow Diagram (Upload + Streaming)
+## Data Flow Diagram (Upload + Streaming)
 
 ```mermaid
 flowchart LR
