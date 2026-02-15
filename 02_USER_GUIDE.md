@@ -57,7 +57,7 @@ Wait for upload to complete.
 That’s it.
 
 ---
-## 💻 Option 2 – Upload From Windows Laptop (Drag & Drop)
+## Option 2 – Upload From Windows Laptop (Drag & Drop)
 
 This is the fastest way to upload large files from your computer.
 
