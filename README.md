@@ -1,3 +1,9 @@
+![Ubuntu](https://img.shields.io/badge/Ubuntu-25.10-E95420?logo=ubuntu&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker&logoColor=white)
+![RAID](https://img.shields.io/badge/RAID-1-blue)
+![ARM64](https://img.shields.io/badge/Architecture-ARM64-green)
+![Status](https://img.shields.io/badge/Status-Active-success)
+
 # ArthPi Home Server
 
 A Raspberry Pi 4–based home server designed for reliable storage, media streaming, and automated health monitoring.
