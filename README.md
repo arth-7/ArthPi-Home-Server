@@ -173,49 +173,58 @@ flowchart TD
     RAID --> DiskB
 ```
 
-## Data Flow Diagram (Upload + Streaming)
+## 🔁 Data Flow Diagram (Upload + Streaming)
 
 ```mermaid
 flowchart LR
 
-  %% Nodes
+  %% Clients
   Phone["Phone\nUploads"]
-  Laptop["Windows Laptop\nDrag & Drop"]
-  TV["Smart TV\nPlays Media"]
-  Router["Home Router / WiFi"]
-  Pi["Raspberry Pi 4\nUbuntu Server"]
-  Filebrowser["Filebrowser\n:8081"]
-  Samba["Samba (SMB)\n\\\\10.0.0.50\\Media"]
-  Jellyfin["Jellyfin\n:8096"]
-  RAID["RAID1 md0\n/mnt/raid"]
-  Movies["/mnt/raid/media/movies"]
-  Series["/mnt/raid/media/series"]
+  Laptop["Windows Laptop\nDrag and Drop"]
+  TV["Smart TV\nPlayback"]
 
-  %% Connectivity
-  Phone -->|Wi-Fi| Router
-  Laptop -->|Wi-Fi / Ethernet| Router
-  TV -->|Wi-Fi| Router
+  %% Network
+  Router["Home Router / WiFi"]
+
+  %% Server + Services
+  Pi["Raspberry Pi 4\nUbuntu Server"]
+  Filebrowser["Filebrowser\n8081"]
+  Samba["Samba SMB\nMedia Share"]
+  Jellyfin["Jellyfin\n8096"]
+
+  %% Storage
+  RAID["RAID1 md0\n/mnt/raid"]
+  Movies["media/movies"]
+  Series["media/series"]
+
+  %% Network connectivity
+  Phone -->|WiFi| Router
+  Laptop -->|WiFi or Ethernet| Router
+  TV -->|WiFi| Router
   Router -->|LAN| Pi
 
-  %% Upload Paths
-  Phone -->|HTTP Upload| Filebrowser
-  Filebrowser -->|Write files| RAID
-  RAID -->|Store| Movies
-  RAID -->|Store| Series
+  %% Upload paths
+  Phone -->|HTTP upload| Filebrowser
+  Laptop -->|SMB copy| Samba
 
-  Laptop -->|SMB File Copy| Samba
-  Samba -->|Write files| RAID
+  %% Service hosting
+  Pi -->|hosts| Filebrowser
+  Pi -->|hosts| Samba
+  Pi -->|docker runs| Jellyfin
 
-  %% Streaming Path
-  Jellyfin -->|Reads media| RAID
-  TV -->|HTTP Stream| Jellyfin
-  Phone -->|Optional playback| Jellyfin
-  Laptop -->|Optional playback| Jellyfin
+  %% Storage writes
+  Filebrowser -->|writes| RAID
+  Samba -->|writes| RAID
 
-  %% Hosting
-  Pi -->|Runs| Filebrowser
-  Pi -->|Runs| Samba
-  Pi -->|Runs (Docker)| Jellyfin
+  %% Media organization
+  RAID -->|stores| Movies
+  RAID -->|stores| Series
+
+  %% Streaming
+  Jellyfin -->|reads| RAID
+  TV -->|streams| Jellyfin
+  Phone -->|optional stream| Jellyfin
+  Laptop -->|optional stream| Jellyfin
 ```
 
 
