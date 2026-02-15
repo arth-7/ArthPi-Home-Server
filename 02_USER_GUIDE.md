@@ -63,17 +63,46 @@ This is the fastest way to upload large files from your computer.
 
 ---
 
-### Step 1 – Open File Explorer
+### Step 1 – Open the Server Folder
 
-1. Press **Windows + E** to open File Explorer.
-2. Click the address bar at the top.
+1. Press **Windows + E** to open File Explorer.  
+2. Click inside the address bar.  
 3. Type:
 
-``` 4. Press **Enter**. If that does not work, try: 
-``` \\arthpi\Media ```
+```
+\\10.0.0.50\Media
+```
+
+4. Press **Enter**.
+
+If that address does not open, try:
+
+```
+\\arthpi\Media
+```
+
 ---
-### Step 2 – Sign In (If Prompted) Enter your server credentials:
-- **Username:** `arth` - **Password:** (your Samba password) If this is your personal laptop, you can select
-**Remember my credentials**. --- ### Step 3 – Upload Files You will see folders such as:
-- `movies` - `series` Drag and drop your files into the correct folder. Wait until the copy process fully completes before closing the window. Your files are now stored on the server.
- ``` --- If you'd like, I can also add a small section on how to permanently map it as a drive (like `Z:`) so it looks cleaner and more professional.
+
+### Step 2 – Enter Login Details
+
+If Windows asks for credentials, enter:
+
+- **Username:** `arth`  
+- **Password:** (your Samba password)
+
+If this is your personal laptop, you may check **Remember my credentials**.
+
+---
+
+### Step 3 – Copy Your Files
+
+You will see folders such as:
+
+- `movies`
+- `series`
+
+Open the correct folder and drag your files into it.
+
+Wait until the transfer finishes completely before closing the window.
+
+Once the copy completes, your files are available on the server.
