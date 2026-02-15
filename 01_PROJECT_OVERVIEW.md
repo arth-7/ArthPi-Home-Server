@@ -59,26 +59,28 @@ RAID1 mirrors both drives:
 
 > Important: RAID provides redundancy, not backup.
 
-
 ## 📂 Folder Structure
 
 All real data lives under:
-/mnt/raid
+
+`/mnt/raid`
 
 Directory layout:
+
+```bash
 /mnt/raid
 ├── media
-│ ├── movies
-│ └── series
+│   ├── movies
+│   └── series
 │
 └── docker
-├── jellyfin
-│ ├── config
-│ └── cache
-└── filebrowser
-├── config
-└── database
-
+    ├── jellyfin
+    │   ├── config
+    │   └── cache
+    └── filebrowser
+        ├── config
+        └── database
+```
 Nothing critical is stored on the SD card.  
 The SD card contains only the operating system.
 
