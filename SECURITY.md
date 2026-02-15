@@ -6,7 +6,7 @@ This document describes the security posture of the ArthPi home server and the e
 
 ---
 
-## ✅ Security Goals
+## Security Goals
 
 - Keep services accessible **only on the home network**
 - Minimize open ports and limit access where possible
@@ -16,7 +16,7 @@ This document describes the security posture of the ArthPi home server and the e
 
 ---
 
-## 🔒 Network Exposure
+## Network Exposure
 
 ### Intended Access Model
 
@@ -26,7 +26,7 @@ This document describes the security posture of the ArthPi home server and the e
 
 ---
 
-## 🔥 Firewall (UFW)
+## Firewall (UFW)
 
 Firewall is enabled with default deny inbound.
 
@@ -73,7 +73,7 @@ Files:
 
 ---
 
-## 🛡 Operational Rules
+## Operational Rules
 
 - Never unplug drives while running
 - Always shutdown cleanly (`sudo shutdown -h now`)
