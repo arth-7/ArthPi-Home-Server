@@ -3,40 +3,40 @@
 ```mermaid
 flowchart TB
 
-  %% ===== Client Layer =====
-  subgraph L1[Client Devices]
-    Phone[📱 Phone<br>(File Upload)]
-    Laptop[💻 Windows Laptop<br>(SMB Share)]
-    TV[📺 Smart TV<br>(Jellyfin App)]
+  %% Client Layer
+  subgraph Client_Layer
+    Phone["Phone\nFile Upload"]
+    Laptop["Windows Laptop\nSMB Access"]
+    TV["Smart TV\nJellyfin App"]
   end
 
-  %% ===== Network Layer =====
-  subgraph L2[Network Layer]
-    Router[🌐 Home Router / Wi-Fi]
+  %% Network Layer
+  subgraph Network_Layer
+    Router["Home Router / WiFi"]
   end
 
-  %% ===== Compute Layer =====
-  subgraph L3[Compute Layer]
-    Pi[🖥 Raspberry Pi 4<br>Ubuntu Server 25.10]
+  %% Compute Layer
+  subgraph Compute_Layer
+    Pi["Raspberry Pi 4\nUbuntu Server"]
   end
 
-  %% ===== Service Layer =====
-  subgraph L4[Service Layer]
-    Docker[🐳 Docker Engine]
-    Jellyfin[🎬 Jellyfin<br>:8096]
-    Filebrowser[📁 Filebrowser<br>:8081]
-    Samba[🗂 Samba (SMB)<br>\\10.0.0.50\Media]
-    Cockpit[🔧 Cockpit<br>:9090 (LAN only)]
+  %% Service Layer
+  subgraph Service_Layer
+    Docker["Docker Engine"]
+    Jellyfin["Jellyfin :8096"]
+    Filebrowser["Filebrowser :8081"]
+    Samba["Samba Share"]
+    Cockpit["Cockpit :9090"]
   end
 
-  %% ===== Storage Layer =====
-  subgraph L5[Storage Layer]
-    RAID[💾 RAID1 (mdadm)<br>/dev/md0 → /mnt/raid]
-    DiskA[HDD A]
-    DiskB[HDD B]
+  %% Storage Layer
+  subgraph Storage_Layer
+    RAID["RAID1 md0\n/mnt/raid"]
+    DiskA["HDD A"]
+    DiskB["HDD B"]
   end
 
-  %% ===== Flows =====
+  %% Connections
   Phone --> Router
   Laptop --> Router
   TV --> Router
